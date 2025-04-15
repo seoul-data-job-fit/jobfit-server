@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobfit.server.interfaces.api.ApiResponse;
-import com.jobfit.server.service.recruit.RecruitInfo;
 import com.jobfit.server.service.recruit.RecruitDetailInfo;
+import com.jobfit.server.service.recruit.RecruitInfo;
 import com.jobfit.server.service.recruit.RecruitService;
 
 import lombok.RequiredArgsConstructor;
@@ -33,8 +33,8 @@ public class RecruitController {
 	@GetMapping("/api/v1/recruit/{recruitId}")
 	public ResponseEntity<ApiResponse<RecruitDetailInfo>> getRecruit(@PathVariable Long recruitId) {
 		try {
-			RecruitInfo recruitInfo = recruitService.getRecruit(recruitId);
-			return ApiResponse.OK(recruitInfo);
+			RecruitDetailInfo recruitDetailInfo = recruitService.getRecruit(recruitId);
+			return ApiResponse.OK(recruitDetailInfo);
 		} catch (Exception e) {
 			return ApiResponse.BusinessException(HttpStatus.NOT_FOUND, e.getMessage());
 		}

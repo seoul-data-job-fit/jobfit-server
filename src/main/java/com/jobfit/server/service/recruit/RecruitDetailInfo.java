@@ -2,14 +2,14 @@ package com.jobfit.server.service.recruit;
 
 import java.time.LocalDate;
 
+import com.jobfit.server.domain.recruit.Category;
 import com.jobfit.server.domain.recruit.Recruit;
 
 import lombok.Builder;
 
 public class RecruitDetailInfo {
   private Long recruitId;
-  private Long jcId;
-  private String category;
+  private Category category;
   private String companyName;
   private String summary;
   private String recruitNumber;
@@ -39,8 +39,7 @@ public class RecruitDetailInfo {
   @Builder
   public RecruitDetailInfo(
     Long recruitId,
-    Long jcId,
-    String category,
+    Category category,
     String companyName,
     String summary,
     String recruitNumber,
@@ -68,7 +67,6 @@ public class RecruitDetailInfo {
     LocalDate endDate
   ) {
     this.recruitId = recruitId;
-    this.jcId = jcId;
     this.category = category;
     this.companyName = companyName;
     this.summary = summary;
@@ -96,5 +94,35 @@ public class RecruitDetailInfo {
     this.registerDate = registerDate;
     this.endDate = endDate;
   }
-
-}
+  public static RecruitDetailInfo from(Recruit recruit) {
+		return RecruitDetailInfo.builder()
+			.recruitId(recruit.getId())
+			.category(recruit.getCategory())
+			.companyName(recruit.getCompanyName())
+			.summary(recruit.getSummary())
+			.recruitNumber(recruit.getRecruitNumber())
+			.educationType(recruit.getEducationType())
+			.jobType(recruit.getJobType())
+			.workPlace(recruit.getWorkPlace())
+			.content(recruit.getContent())
+			.careerType(recruit.getCareerType())
+			.wage(recruit.getWage())
+			.workTime(recruit.getWorkTime())
+			.workType(recruit.getWorkType())
+			.workSchedule(recruit.getWorkSchedule())
+			.totalTime(recruit.getTotalTime())
+			.insurance(recruit.getInsurance())
+			.recruitmentMethod(recruit.getRecruitmentMethod())
+			.applyMethod(recruit.getApplyMethod())
+			.applyDocument(recruit.getApplyDocument())
+			.manager(recruit.getManager())
+			.managerPhonenumber(recruit.getManagerPhonenumber())
+			.managerOrganization(recruit.getManagerOrganization())
+			.companyAddress(recruit.getCompanyAddress())
+			.title(recruit.getTitle())
+			.jobPosting(recruit.getJobPosting())
+			.registerDate(recruit.getRegisterDate())
+			.endDate(recruit.getEndDate())
+			.build();
+	}
+} 

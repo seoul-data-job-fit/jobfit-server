@@ -6,9 +6,12 @@ import com.jobfit.server.domain.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import static jakarta.persistence.FetchType.LAZY;
 import jakarta.persistence.GeneratedValue;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import static lombok.AccessLevel.PROTECTED;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +25,9 @@ public class Recruit extends BaseEntity {
   @Column(name = "recruit_id")
   @GeneratedValue(strategy = IDENTITY)
   private Long id;
-  private Long jcId;
-  private String category;
+  @ManyToOne(fetch = LAZY)
+  @JoinColumn(name = "category_id")
+  private Category category;
   private String companyName;
   private String summary;
   private String recruitNumber;
@@ -51,8 +55,7 @@ public class Recruit extends BaseEntity {
   private LocalDate endDate;
 
   public Recruit(
-    Long jcId,
-    String category,
+    Category category,
     String companyName,
     String summary,
     String recruitNumber,
@@ -79,7 +82,6 @@ public class Recruit extends BaseEntity {
     LocalDate registerDate,
     LocalDate endDate
   ) {
-    this.jcId = jcId;
     this.category = category;
     this.companyName = companyName;
     this.summary = summary;
