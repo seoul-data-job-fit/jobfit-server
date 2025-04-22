@@ -1,37 +1,35 @@
 package com.jobfit.server.service.recruit;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jobfit.server.domain.recruit.Recruit;
 import com.jobfit.server.domain.recruit.RecruitRepository;
 import com.jobfit.server.infras.recruit.RecruitJpaRepository;
 import com.jobfit.server.support.recurit.RecruitSupport;
 
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class RecruitService {
-
-	private static final Logger log = LoggerFactory.getLogger(RecruitService.class);
-	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	private final RecruitRepository recruitRepository;
 	private final RecruitJpaRepository recruitJpaRepository;
@@ -72,6 +70,9 @@ public class RecruitService {
 
 		return recruitPage.map(RecruitInfo::from);
 	}
+
+	private static final Logger log = LoggerFactory.getLogger(RecruitService.class);
+	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	@Transactional // 데이터를 저장하므로 Transactional 추가
 	public int saveTestDataFromApi(int start, int end) {
