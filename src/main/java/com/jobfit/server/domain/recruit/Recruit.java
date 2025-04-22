@@ -25,9 +25,10 @@ public class Recruit extends BaseEntity {
   @Column(name = "recruit_id")
   @GeneratedValue(strategy = IDENTITY)
   private Long id;
-  @ManyToOne(fetch = LAZY)
-  @JoinColumn(name = "category_id")
-  private Category category;
+  // @ManyToOne(fetch = LAZY)
+  // @JoinColumn(name = "category_id")
+  // private Category category;
+  private String category;
   private String companyName;
   private String summary;
   private String recruitNumber;
@@ -50,38 +51,37 @@ public class Recruit extends BaseEntity {
   private String managerOrganization;
   private String companyAddress;
   private String title;
-  private String jobPosting;  
+  private String jobPosting;
   private LocalDate registerDate;
   private LocalDate endDate;
 
   public Recruit(
-    Category category,
-    String companyName,
-    String summary,
-    String recruitNumber,
-    String educationType,
-    String jobType,
-    String workPlace,
-    String content,
-    String careerType,
-    String wage,
-    String workTime,
-    String workType,
-    String workSchedule,
-    String totalTime,
-    String insurance,
-    String recruitmentMethod,
-    String applyMethod,
-    String applyDocument,
-    String manager,
-    String managerPhonenumber,
-    String managerOrganization,
-    String companyAddress,
-    String title,
-    String jobPosting,
-    LocalDate registerDate,
-    LocalDate endDate
-  ) {
+      String category,
+      String companyName,
+      String summary,
+      String recruitNumber,
+      String educationType,
+      String jobType,
+      String workPlace,
+      String content,
+      String careerType,
+      String wage,
+      String workTime,
+      String workType,
+      String workSchedule,
+      String totalTime,
+      String insurance,
+      String recruitmentMethod,
+      String applyMethod,
+      String applyDocument,
+      String manager,
+      String managerPhonenumber,
+      String managerOrganization,
+      String companyAddress,
+      String title,
+      String jobPosting,
+      LocalDate registerDate,
+      LocalDate endDate) {
     this.category = category;
     this.companyName = companyName;
     this.summary = summary;

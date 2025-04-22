@@ -2,14 +2,14 @@ package com.jobfit.server.service.recruit;
 
 import java.time.LocalDate;
 
-import com.jobfit.server.domain.recruit.Category;
+// import com.jobfit.server.domain.recruit.Category;
 import com.jobfit.server.domain.recruit.Recruit;
 
 import lombok.Builder;
 
 public class RecruitDetailInfo {
   private Long recruitId;
-  private Category category;
+  private String category;
   private String companyName;
   private String summary;
   private String recruitNumber;
@@ -32,40 +32,39 @@ public class RecruitDetailInfo {
   private String managerOrganization;
   private String companyAddress;
   private String title;
-  private String jobPosting;  
+  private String jobPosting;
   private LocalDate registerDate;
   private LocalDate endDate;
-  
+
   @Builder
   public RecruitDetailInfo(
-    Long recruitId,
-    Category category,
-    String companyName,
-    String summary,
-    String recruitNumber,
-    String educationType,
-    String jobType,
-    String workPlace,
-    String content,
-    String careerType,
-    String wage,
-    String workTime,
-    String workType,
-    String workSchedule,
-    String totalTime,
-    String insurance,
-    String recruitmentMethod,
-    String applyMethod,
-    String applyDocument,
-    String manager,
-    String managerPhonenumber,
-    String managerOrganization,
-    String companyAddress,
-    String title,
-    String jobPosting,
-    LocalDate registerDate,
-    LocalDate endDate
-  ) {
+      Long recruitId,
+      String category,
+      String companyName,
+      String summary,
+      String recruitNumber,
+      String educationType,
+      String jobType,
+      String workPlace,
+      String content,
+      String careerType,
+      String wage,
+      String workTime,
+      String workType,
+      String workSchedule,
+      String totalTime,
+      String insurance,
+      String recruitmentMethod,
+      String applyMethod,
+      String applyDocument,
+      String manager,
+      String managerPhonenumber,
+      String managerOrganization,
+      String companyAddress,
+      String title,
+      String jobPosting,
+      LocalDate registerDate,
+      LocalDate endDate) {
     this.recruitId = recruitId;
     this.category = category;
     this.companyName = companyName;
@@ -94,35 +93,36 @@ public class RecruitDetailInfo {
     this.registerDate = registerDate;
     this.endDate = endDate;
   }
+
   public static RecruitDetailInfo from(Recruit recruit) {
-		return RecruitDetailInfo.builder()
-			.recruitId(recruit.getId())
-			.category(recruit.getCategory())
-			.companyName(recruit.getCompanyName())
-			.summary(recruit.getSummary())
-			.recruitNumber(recruit.getRecruitNumber())
-			.educationType(recruit.getEducationType())
-			.jobType(recruit.getJobType())
-			.workPlace(recruit.getWorkPlace())
-			.content(recruit.getContent())
-			.careerType(recruit.getCareerType())
-			.wage(recruit.getWage())
-			.workTime(recruit.getWorkTime())
-			.workType(recruit.getWorkType())
-			.workSchedule(recruit.getWorkSchedule())
-			.totalTime(recruit.getTotalTime())
-			.insurance(recruit.getInsurance())
-			.recruitmentMethod(recruit.getRecruitmentMethod())
-			.applyMethod(recruit.getApplyMethod())
-			.applyDocument(recruit.getApplyDocument())
-			.manager(recruit.getManager())
-			.managerPhonenumber(recruit.getManagerPhonenumber())
-			.managerOrganization(recruit.getManagerOrganization())
-			.companyAddress(recruit.getCompanyAddress())
-			.title(recruit.getTitle())
-			.jobPosting(recruit.getJobPosting())
-			.registerDate(recruit.getRegisterDate())
-			.endDate(recruit.getEndDate())
-			.build();
-	}
-} 
+    return RecruitDetailInfo.builder()
+        .recruitId(recruit.getId())
+        .category(recruit.getCategory())
+        .companyName(recruit.getCompanyName())
+        .summary(recruit.getSummary())
+        .recruitNumber(recruit.getRecruitNumber())
+        .educationType(recruit.getEducationType())
+        .jobType(recruit.getJobType())
+        .workPlace(recruit.getWorkPlace())
+        .content(recruit.getContent())
+        .careerType(recruit.getCareerType())
+        .wage(recruit.getWage())
+        .workTime(recruit.getWorkTime())
+        .workType(recruit.getWorkType())
+        .workSchedule(recruit.getWorkSchedule())
+        .totalTime(recruit.getTotalTime())
+        .insurance(recruit.getInsurance())
+        .recruitmentMethod(recruit.getRecruitmentMethod())
+        .applyMethod(recruit.getApplyMethod())
+        .applyDocument(recruit.getApplyDocument())
+        .manager(recruit.getManager())
+        .managerPhonenumber(recruit.getManagerPhonenumber())
+        .managerOrganization(recruit.getManagerOrganization())
+        .companyAddress(recruit.getCompanyAddress())
+        .title(recruit.getTitle())
+        .jobPosting(recruit.getJobPosting())
+        .registerDate(recruit.getRegisterDate())
+        .endDate(recruit.getEndDate())
+        .build();
+  }
+}
