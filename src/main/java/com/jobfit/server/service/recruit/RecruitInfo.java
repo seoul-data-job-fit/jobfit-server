@@ -3,7 +3,9 @@ package com.jobfit.server.service.recruit;
 import com.jobfit.server.domain.recruit.Recruit;
 import java.time.LocalDate;
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class RecruitInfo {
 
   private Long recruitId;
@@ -16,14 +18,13 @@ public class RecruitInfo {
 
   @Builder
   private RecruitInfo(
-    Long recruitId,
-    String title,
-    String companyName,
-    String workType,
-    String workPlace,
-    LocalDate registerDate,
-    LocalDate endDate
-  ) {
+      Long recruitId,
+      String title,
+      String companyName,
+      String workType,
+      String workPlace,
+      LocalDate registerDate,
+      LocalDate endDate) {
     this.recruitId = recruitId;
     this.title = title;
     this.companyName = companyName;
@@ -35,13 +36,13 @@ public class RecruitInfo {
 
   public static RecruitInfo from(Recruit recruit) {
     return RecruitInfo.builder()
-      .recruitId(recruit.getId())
-      .title(recruit.getTitle())
-      .companyName(recruit.getCompanyName())
-      .workType(recruit.getWorkType())
-      .workPlace(recruit.getWorkPlace())
-      .registerDate(recruit.getRegisterDate())
-      .endDate(recruit.getEndDate())
-      .build();
+        .recruitId(recruit.getId())
+        .title(recruit.getTitle())
+        .companyName(recruit.getCompanyName())
+        .workType(recruit.getWorkType())
+        .workPlace(recruit.getWorkPlace())
+        .registerDate(recruit.getRegisterDate())
+        .endDate(recruit.getEndDate())
+        .build();
   }
 }

@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import com.jobfit.server.domain.recruit.Recruit;
 
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class RecruitDetailInfo {
   private Long recruitId;
   private String category;

@@ -57,7 +57,7 @@ public class RecruitService {
 			sort = Sort.by(Sort.Direction.DESC, "registerDate");
 		}
 
-		int pageNumber = (page != null && page >= 0) ? page : 1;
+		int pageNumber = (page != null && page >= 0) ? page : 0;
 		int pageSize = (size != null && size > 0) ? size : 10;
 		Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
