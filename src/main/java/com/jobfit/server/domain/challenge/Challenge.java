@@ -1,6 +1,7 @@
 package com.jobfit.server.domain.challenge;
 
 import com.jobfit.server.domain.BaseEntity;
+import com.jobfit.server.service.challenge.EvaluationResult;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,6 +31,11 @@ public class Challenge extends BaseEntity {
 	private String strengths;
 	private String weaknesses;
 
+	private String strengthsPoint;
+	private String weaknessesPoint;
+	private String improvements;
+
+
 	@Enumerated(EnumType.STRING)
 	private ChallengeStatus status;
 
@@ -40,5 +46,15 @@ public class Challenge extends BaseEntity {
 		this.strengths = strengths;
 		this.weaknesses = weaknesses;
 		this.status = status;
+	}
+
+	public void apply(EvaluationResult evaluationResult) {
+		this.progress = evaluationResult.getProgress();
+		this.strengths = evaluationResult.getStrengths();
+		this.weaknesses = evaluationResult.getWeaknesses();
+		this.strengthsPoint = evaluationResult.getStrengthsPoint();
+		this.weaknessesPoint = evaluationResult.getWeaknessesPoint();
+		this.improvements = evaluationResult.getImprovements();
+		this.status = ChallengeStatus.ACTIVE;
 	}
 }

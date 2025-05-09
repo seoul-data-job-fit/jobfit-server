@@ -16,10 +16,14 @@ public class ChallengeDetailDto {
 	private String careerType;
 	private String strengths;
 	private String weaknesses;
+	private String strengthsPoint;
+	private String weaknessesPoint;
+	private String improvements;
 	private String content;
 
 	public ChallengeDetailDto(Long challengeId, Long userId, Long recruitId, String title, String companyName,
-		LocalDate registrationDate, Long progress, String careerType, String strengths, String weaknesses, String content) {
+		LocalDate registrationDate, Long progress, String careerType, String strengths, String weaknesses, String strengthsPoint,
+		String weaknessesPoint, String improvements, String content) {
 		this.challengeId = challengeId;
 		this.userId = userId;
 		this.recruitId = recruitId;
@@ -30,6 +34,9 @@ public class ChallengeDetailDto {
 		this.careerType = careerType;
 		this.strengths = strengths;
 		this.weaknesses = weaknesses;
+		this.strengthsPoint = strengthsPoint;
+		this.weaknessesPoint = weaknessesPoint;
+		this.improvements = improvements;
 		this.content = content;
 	}
 }

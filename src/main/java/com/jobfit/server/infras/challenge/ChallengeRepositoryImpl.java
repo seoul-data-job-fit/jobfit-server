@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jobfit.server.domain.challenge.Challenge;
 import com.jobfit.server.domain.challenge.ChallengeRepository;
+import com.jobfit.server.domain.challenge.ChallengeStatus;
 
 import lombok.RequiredArgsConstructor;
 
@@ -44,5 +45,10 @@ public class ChallengeRepositoryImpl implements ChallengeRepository {
 	@Override
 	public Optional<ChallengeDetailDto> findByIdWithRecruit(Long challengeId) {
 		return challengeJpaRepository.findByIdWithRecruit(challengeId);
+	}
+
+	@Override
+	public List<Challenge> findAllByStatus(ChallengeStatus challengeStatus) {
+		return challengeJpaRepository.findAllByStatus(challengeStatus);
 	}
 }
