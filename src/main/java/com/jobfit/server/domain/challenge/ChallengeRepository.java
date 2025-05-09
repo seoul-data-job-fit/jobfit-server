@@ -14,4 +14,6 @@ public interface ChallengeRepository {
 	void delete(Challenge challenge);
 
 	Optional<ChallengeDetailDto> findByIdWithRecruit(Long challengeId);
+
+	List<Challenge> findAllByStatus(ChallengeStatus challengeStatus);
 }

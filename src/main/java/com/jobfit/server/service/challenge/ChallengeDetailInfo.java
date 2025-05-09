@@ -20,6 +20,9 @@ public class ChallengeDetailInfo {
 	private String careerType;
 	private String strengths;
 	private String weaknesses;
+	private String strengthsPoint;
+	private String weaknessesPoint;
+	private String improvements;
 	private String content;
 
 	@Builder
@@ -34,6 +37,9 @@ public class ChallengeDetailInfo {
 		String careerType,
 		String strengths,
 		String weaknesses,
+		String strengthsPoint,
+		String weaknessesPoint,
+		String improvements,
 		String content
 	) {
 		this.challengeId = challengeId;
@@ -46,6 +52,9 @@ public class ChallengeDetailInfo {
 		this.careerType = careerType;
 		this.strengths = strengths;
 		this.weaknesses = weaknesses;
+		this.strengthsPoint = strengthsPoint;
+		this.weaknessesPoint = weaknessesPoint;
+		this.improvements = improvements;
 		this.content = content;
 	}
 
@@ -61,6 +70,9 @@ public class ChallengeDetailInfo {
 			.careerType(dto.getCareerType())
 			.strengths(dto.getStrengths())
 			.weaknesses(dto.getWeaknesses())
+			.strengthsPoint(dto.getStrengthsPoint())
+			.weaknessesPoint(dto.getWeaknessesPoint())
+			.improvements(dto.getImprovements())
 			.content(dto.getContent())
 			.build();
 	}

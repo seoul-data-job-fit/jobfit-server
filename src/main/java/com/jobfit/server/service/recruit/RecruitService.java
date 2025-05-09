@@ -104,7 +104,7 @@ public class RecruitService {
 			String recruitNumber = item.optString("RCRIT_NMPR_CO", "");
 			String educationType = item.optString("ACDMCR_NM", "");
 			String jobType = item.optString("EMPLYM_STLE_CMMN_MM", "");
-			String workPlace = item.optString("WORK_PARAR_BASS_ADRES", "");
+			String workPlace = item.optString("WORK_PARAR_BASS_ADRES_CN", "");
 			String content = item.optString("DTY_CN", "");
 			String careerType = item.optString("CAREER_CND_NM", "");
 			String wage = item.optString("HOPE_WAGE", "");
